@@ -1,0 +1,73 @@
+# ######################################################################################
+#
+# This default application config.
+# If you want get value from this config use: config.get('application:*').
+# For example get environment option: config.get('application:environment').
+#
+# If you want override some values in this config, You have 3 options:
+# 1) Create "production.yml" file in configs directory
+# 2) Use argv vars on node start: node service.js  --application:environment production
+# 3) Use ENV variables
+#
+# ######################################################################################
+
+# Log level variants: trace, debug, info, warn, error, fatal
+logLevel: trace
+
+# Application don't use this. Use for your own needs
+environment: development
+
+# This connector will used for managing queue and must be instance of AbstractQueue
+queueConnector: RabbitMQ
+
+# This connectors will be connected before workers start listen queue.
+# Some connectors already implemented: Mongoose and Redis.
+# You also may write your own connectors, use for it AbstractConnector
+# If you not need connector just set []
+connectors: [] # [Mongoose, Redis]
+
+# List here the list of modules to be connected
+# For more information see wiki in GitHub and example module
+modules: [example]
+
+# How many worker process manager can create and keep in memory
+# Increase this value for processing more messages if you have enough memory on server
+# Or decrease this value if you want limit the server memory consuming
+maximumIdleWorkers: 10
+
+# If worker proccessed maximumWorkerRequests processManager will close it and will free the memory
+# You may increase this value if your modules not have problems with memory leaks
+maximumWorkerRequests: 100
+
+# If worker spend more maximumWorkerIdleTime in idle state it will shut down
+maximumWorkerIdleTime: 5 # Minites
+
+# If worker spend more that maximumExecutionTime on processing one message it will forced shut down
+maximumExecutionTime: 25 # Minites
+
+
+# ######################################################################################
+#
+#   This section used by built in connectors.
+#   For more information see method "connect" of connector class
+#
+# ######################################################################################
+RabbitMQ:
+  host: localhost
+  port: 5672
+  login: guest
+  password: guest
+
+
+Mongoose:
+  url: mongodb://localhost/test,
+  options:
+    db: { safe: true }
+    auto_reconnect: true
+    socketOptions: { keepAlive: 1 }
+
+
+Redis:
+   host: localhost
+   port: 6379
+   options: { max_attempts: 7 }

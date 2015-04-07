@@ -1,0 +1,12 @@
+{
+    "predef": [ "define", "requirejs" ],
+    "boss":      true,
+    "node":      true,
+    "strict":    true,
+    "maxlen":    120,
+    "newcap":    false,
+    "undef":     true,
+    "unused":    true,
+    "onecase":   true,
+    "lastsemic": true
+}

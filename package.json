@@ -1,0 +1,29 @@
+{
+  "name": "teempla-job-broker",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cloudar/job-broker.git"
+  },
+  "dependencies": {
+    "grunt": "0.4.5",
+    "grunt-forever": "0.4.5",
+    "requirejs":    "2.1.17",
+    "lodash":       "3.6.0",
+    "amqp":         "0.2.4",
+    "q":            "1.1.2",
+    "nconf":        "0.7.1",
+    "log4js":       "0.6.22",
+    "js-yaml":      "3.2.7",
+
+    "mongoose":     "4.0.1",
+    "redis":        "0.12.1"
+
+  },
+  "devDependencies": {
+
+  },
+  "engines": {
+    "node": "0.12.1"
+  }
+}

@@ -1,0 +1,9 @@
+name: 'Example module'
+
+subscribe:
+
+  example.worker:
+    file: ExampleWorker
+
+  example.exception:
+    file: folder/ExceptionExample
